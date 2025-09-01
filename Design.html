@@ -12,34 +12,28 @@
         }
         
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
-            color: #1a1a1a;
-            overflow-x: hidden;
-            background: #fafbfc;
+            color: #333;
+            background: #fafafa;
         }
         
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 20px;
         }
         
         /* Header */
         header {
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px) saturate(180%);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
             padding: 1rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            transition: all 0.3s ease;
-        }
-        
-        header.scrolled {
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         
         nav {
@@ -49,827 +43,199 @@
         }
         
         .logo {
-            font-size: 2.2rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6, #ec4899);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #6366f1;
         }
         
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 1rem;
+            gap: 2rem;
         }
         
         .nav-links a {
-            color: #374151;
+            color: #555;
             text-decoration: none;
             font-weight: 500;
-            padding: 0.8rem 1.8rem;
-            border-radius: 50px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
         }
         
         .nav-links a:hover, .nav-links a.active {
+            background: #6366f1;
+            color: white;
+        }
+        
+        .mobile-menu {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #555;
+            cursor: pointer;
+        }
+        
+        /* Hero */
+        .hero {
             background: linear-gradient(135deg, #6366f1, #8b5cf6);
             color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.25);
-        }
-        
-        /* Mobile Menu */
-        .mobile-menu-btn {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            padding: 8px;
-        }
-        
-        .mobile-menu-btn span {
-            width: 25px;
-            height: 3px;
-            background: #374151;
-            margin: 3px 0;
-            border-radius: 3px;
-            transition: 0.3s;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 30%, #f093fb 60%, #4facfe 100%);
-            color: white;
-            padding: 160px 0 120px;
+            padding: 150px 0 100px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-            min-height: 100vh;
+            min-height: 80vh;
             display: flex;
             align-items: center;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
-            animation: float 30s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            33% { transform: translate(30px, -30px) rotate(120deg); }
-            66% { transform: translate(-20px, 20px) rotate(240deg); }
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
-            margin: 0 auto;
         }
         
         .hero h1 {
-            font-size: clamp(3rem, 8vw, 6rem);
-            margin-bottom: 2rem;
-            font-weight: 900;
-            background: linear-gradient(45deg, #ffffff, #ffd93d, #ff6b6b);
-            background-size: 200% 200%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradientShift 4s ease infinite, textGlow 2s ease-in-out infinite alternate;
-            line-height: 1.1;
-        }
-        
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        
-        @keyframes textGlow {
-            from { filter: drop-shadow(0 0 20px rgba(255, 217, 61, 0.3)); }
-            to { filter: drop-shadow(0 0 40px rgba(255, 217, 61, 0.6)); }
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 1.5rem;
+            font-weight: 800;
         }
         
         .hero p {
-            font-size: 1.5rem;
-            opacity: 0.95;
-            max-width: 700px;
-            margin: 0 auto 3rem;
-            animation: fadeInUp 1s ease 0.5s both;
-            font-weight: 300;
-            line-height: 1.7;
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
         }
         
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 0.95; transform: translateY(0); }
-        }
-        
-        .hero-cta {
+        .hero-buttons {
             display: flex;
-            gap: 2rem;
+            gap: 1rem;
             justify-content: center;
-            align-items: center;
-            margin-top: 3rem;
             flex-wrap: wrap;
         }
         
-        .cta-primary {
-            background: linear-gradient(135deg, #ff6b6b, #ffd93d);
+        .btn-primary {
+            background: #ff6b6b;
             color: white;
-            padding: 1.4rem 3.5rem;
+            padding: 1rem 2rem;
             border: none;
-            border-radius: 60px;
-            font-size: 1.1rem;
+            border-radius: 30px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 15px 35px rgba(255, 107, 107, 0.3);
-            position: relative;
-            overflow: hidden;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
         }
         
-        .cta-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s ease;
+        .btn-primary:hover {
+            background: #ff5252;
+            transform: translateY(-2px);
         }
         
-        .cta-primary:hover::before {
-            left: 100%;
-        }
-        
-        .cta-primary:hover {
-            transform: translateY(-6px) scale(1.05);
-            box-shadow: 0 25px 50px rgba(255, 107, 107, 0.4);
-        }
-        
-        .cta-secondary {
-            background: rgba(255, 255, 255, 0.15);
+        .btn-secondary {
+            background: transparent;
             color: white;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            padding: 1.4rem 3.5rem;
-            border-radius: 60px;
-            font-size: 1.1rem;
+            padding: 1rem 2rem;
+            border: 2px solid white;
+            border-radius: 30px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
         }
         
-        .cta-secondary:hover {
+        .btn-secondary:hover {
             background: white;
-            color: #667eea;
-            transform: translateY(-6px) scale(1.05);
-            box-shadow: 0 25px 50px rgba(255, 255, 255, 0.3);
+            color: #6366f1;
         }
         
-        /* Design Philosophy Section */
+        /* Philosophy */
         .philosophy {
-            padding: 120px 0;
+            padding: 80px 0;
             background: white;
-            position: relative;
         }
         
         .section-title {
             text-align: center;
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            margin-bottom: 3rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6, #ec4899);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            position: relative;
-            line-height: 1.2;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            color: #333;
         }
         
         .section-subtitle {
             text-align: center;
-            font-size: 1.3rem;
-            color: #6b7280;
+            font-size: 1.1rem;
+            color: #666;
             max-width: 600px;
-            margin: 0 auto 5rem;
-            font-weight: 300;
+            margin: 0 auto 3rem;
         }
         
         .philosophy-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-            margin-top: 6rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
         }
         
         .philosophy-item {
             background: white;
-            padding: 3rem 2.5rem;
-            border-radius: 32px;
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
             text-align: center;
-        }
-        
-        .philosophy-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 6px;
-            background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899);
-            background-size: 200% 200%;
-            animation: gradientShift 3s ease infinite;
+            transition: transform 0.3s ease;
         }
         
         .philosophy-item:hover {
-            transform: translateY(-20px) scale(1.02);
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
         }
         
         .philosophy-icon {
-            font-size: 4.5rem;
-            margin-bottom: 2rem;
+            font-size: 3rem;
+            margin-bottom: 1rem;
             display: block;
-            filter: grayscale(0);
-            transition: all 0.4s ease;
-        }
-        
-        .philosophy-item:hover .philosophy-icon {
-            transform: scale(1.2) rotate(10deg);
-            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
         }
         
         .philosophy-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: #1f2937;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #333;
         }
         
         .philosophy-description {
-            color: #6b7280;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            font-weight: 300;
+            color: #666;
+            line-height: 1.6;
         }
         
-        /* Portfolio Section */
-        .portfolio {
-            padding: 120px 0;
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-        }
-        
-        .portfolio-filters {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 5rem;
-            flex-wrap: wrap;
-        }
-        
-        .filter-btn {
-            background: white;
-            border: 2px solid #e5e7eb;
-            color: #6b7280;
-            padding: 1.2rem 2.5rem;
-            border-radius: 60px;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            font-weight: 600;
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        }
-        
-        .filter-btn.active,
-        .filter-btn:hover {
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
-            color: white;
-            border-color: transparent;
-            transform: translateY(-4px) scale(1.05);
-            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.3);
-        }
-        
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 3rem;
-        }
-        
-        .portfolio-item {
-            position: relative;
-            border-radius: 32px;
-            overflow: hidden;
-            background: white;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            height: 450px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .portfolio-item:hover {
-            transform: translateY(-20px) scale(1.02);
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15);
-        }
-        
-        .portfolio-image {
-            width: 100%;
-            height: 280px;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6, #ec4899);
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .portfolio-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.8), rgba(139, 92, 246, 0.6));
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-        
-        .portfolio-item:hover .portfolio-image::before {
-            opacity: 1;
-        }
-        
-        .portfolio-overlay {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            z-index: 3;
-            opacity: 0;
-            transition: all 0.4s ease;
-        }
-        
-        .portfolio-item:hover .portfolio-overlay {
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1.1);
-        }
-        
-        .view-project {
-            background: rgba(255, 255, 255, 0.95);
-            color: #6366f1;
-            border: none;
-            padding: 1.2rem 2.5rem;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .view-project:hover {
-            background: white;
-            transform: scale(1.1);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-        
-        .portfolio-content {
-            padding: 2.5rem;
-            background: white;
-        }
-        
-        .portfolio-category {
-            font-size: 0.85rem;
-            color: #6366f1;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 1rem;
-            display: inline-block;
-            background: linear-gradient(135deg, #ede9fe, #ddd6fe);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-        }
-        
-        .portfolio-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: #1f2937;
-            line-height: 1.3;
-        }
-        
-        .portfolio-description {
-            font-size: 1rem;
-            color: #6b7280;
-            line-height: 1.7;
-            font-weight: 300;
-        }
-        
-        /* Process Section */
-        .process {
-            padding: 120px 0;
-            background: white;
-            position: relative;
-        }
-        
-        .process-timeline {
-            position: relative;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 3rem 0;
-        }
-        
-        .process-timeline::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 6px;
-            height: 100%;
-            background: linear-gradient(to bottom, #6366f1, #8b5cf6, #ec4899);
-            border-radius: 3px;
-            box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
-        }
-        
-        .process-step {
-            display: flex;
-            align-items: center;
-            margin-bottom: 8rem;
-            position: relative;
-        }
-        
-        .process-step:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-        
-        .process-step:nth-child(even) .process-content {
-            text-align: right;
-        }
-        
-        .process-content {
-            flex: 1;
-            background: white;
-            padding: 3.5rem;
-            border-radius: 32px;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
-            margin: 0 4rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .process-content::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 6px;
-            background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899);
-            background-size: 200% 200%;
-            animation: gradientShift 3s ease infinite;
-        }
-        
-        .process-content:hover {
-            transform: scale(1.05);
-            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.12);
-        }
-        
-        .process-number {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: white;
-            z-index: 10;
-            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
-            border: 6px solid white;
-        }
-        
-        .process-title {
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: #1f2937;
-        }
-        
-        .process-description {
-            color: #6b7280;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 2.5rem;
-            font-weight: 300;
-        }
-        
-        .process-features {
-            list-style: none;
-        }
-        
-        .process-features li {
-            padding: 0.8rem 0;
-            color: #374151;
-            position: relative;
-            padding-left: 2.5rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        
-        .process-features li::before {
-            content: '✨';
-            position: absolute;
-            left: 0;
-            font-size: 1.3rem;
-            animation: sparkle 2s ease-in-out infinite;
-        }
-        
-        @keyframes sparkle {
-            0%, 100% { transform: scale(1) rotate(0deg); }
-            50% { transform: scale(1.2) rotate(180deg); }
-        }
-        
-        .process-features li:hover {
-            color: #6366f1;
-            transform: translateX(10px);
-        }
-        
-        /* Services Section */
-        .services {
-            padding: 120px 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 30%, #f093fb 100%);
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .services::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
-            animation: float 25s ease-in-out infinite reverse;
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-            margin-top: 5rem;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .service-card {
-            background: rgba(255, 255, 255, 0.12);
-            border-radius: 32px;
-            padding: 3.5rem 2.5rem;
-            text-align: center;
-            backdrop-filter: blur(20px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
-            transition: left 0.6s ease;
-        }
-        
-        .service-card:hover::before {
-            left: 100%;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            background: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.25);
-        }
-        
-        .service-icon {
-            font-size: 4.5rem;
-            margin-bottom: 2rem;
-            display: block;
-            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
-            transition: all 0.4s ease;
-        }
-        
-        .service-card:hover .service-icon {
-            transform: scale(1.15) rotate(-10deg);
-            filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.2));
-        }
-        
-        .service-title {
-            font-size: 1.9rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: white;
-        }
-        
-        .service-description {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            line-height: 1.8;
-            margin-bottom: 2.5rem;
-            font-weight: 300;
-        }
-        
-        .service-features {
-            list-style: none;
-            text-align: left;
-        }
-        
-        .service-features li {
-            padding: 0.8rem 0;
-            position: relative;
-            padding-left: 2.5rem;
-            opacity: 0.9;
-            font-weight: 400;
-            transition: all 0.3s ease;
-        }
-        
-        .service-features li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: #ffd93d;
-            font-weight: bold;
-            font-size: 1.3rem;
-            transition: all 0.3s ease;
-        }
-        
-        .service-features li:hover {
-            opacity: 1;
-            transform: translateX(10px);
-        }
-        
-        .service-features li:hover::before {
-            transform: scale(1.2);
-            color: #ff6b6b;
-        }
-        
-        /* CTA Section */
-        .cta-section {
-            padding: 120px 0;
-            background: linear-gradient(135deg, #ff6b6b 0%, #ffd93d 50%, #4ecdc4 100%);
-            color: white;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-            animation: pulse 4s ease-in-out infinite;
-        }
-        
-        .cta-section h2 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            margin-bottom: 2rem;
-            font-weight: 800;
-            animation: bounce 3s ease-in-out infinite;
-            position: relative;
-            z-index: 2;
-        }
-        
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-15px); }
-            60% { transform: translateY(-8px); }
-        }
-        
-        .cta-section p {
-            font-size: 1.4rem;
-            margin-bottom: 3rem;
-            opacity: 0.95;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            font-weight: 300;
-            line-height: 1.7;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .cta-buttons {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .cta-large {
-            background: rgba(255, 255, 255, 0.95);
-            color: #ff6b6b;
-            padding: 1.8rem 4rem;
-            border: none;
-            border-radius: 60px;
-            font-size: 1.2rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
-        }
-        
-        .cta-large:hover {
-            transform: translateY(-8px) scale(1.05);
-            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.3);
-            background: white;
-        }
-        
-        /* Gallery Section */
+        /* Gallery */
         .gallery {
-            padding: 120px 0;
-            background: white;
+            padding: 80px 0;
+            background: #f8f9fa;
         }
         
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
         }
         
         .gallery-item {
             position: relative;
-            border-radius: 24px;
+            border-radius: 15px;
             overflow: hidden;
             aspect-ratio: 4/3;
             cursor: pointer;
-            transition: all 0.4s ease;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
         .gallery-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            transform: scale(1.02);
         }
         
         .gallery-image {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: all 0.4s ease;
-        }
-        
-        .gallery-item:hover .gallery-image {
-            transform: scale(1.1);
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
         }
         
         .gallery-overlay {
@@ -878,12 +244,12 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.8), rgba(139, 92, 246, 0.6));
+            background: rgba(0,0,0,0.7);
             display: flex;
             align-items: center;
             justify-content: center;
             opacity: 0;
-            transition: all 0.4s ease;
+            transition: opacity 0.3s ease;
         }
         
         .gallery-item:hover .gallery-overlay {
@@ -892,56 +258,70 @@
         
         .gallery-title {
             color: white;
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-size: 1.2rem;
+            font-weight: 600;
             text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
         
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+        /* Services */
+        .services {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
             color: white;
-            padding: 80px 0 40px;
         }
         
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 4rem;
-            margin-bottom: 3rem;
-        }
-        
-        .footer-section h3 {
-            margin-bottom: 1.5rem;
-            color: #ff6b6b;
-            font-size: 1.3rem;
-            font-weight: 700;
-        }
-        
-        .footer-section p, .footer-section a {
-            color: #d1d5db;
-            text-decoration: none;
-            line-height: 1.8;
-            font-weight: 300;
-            transition: all 0.3s ease;
-        }
-        
-        .footer-section a:hover {
-            color: #ff6b6b;
-            transform: translateX(5px);
-        }
-        
-        .footer-bottom {
-            padding-top: 2rem;
-            border-top: 1px solid #374151;
-            color: #9ca3af;
+        .service-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 2rem;
             text-align: center;
-            font-weight: 300;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: transform 0.3s ease;
         }
         
-        /* Modal for Image Preview */
+        .service-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.15);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .service-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .service-description {
+            opacity: 0.9;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-features {
+            list-style: none;
+            text-align: left;
+        }
+        
+        .service-features li {
+            padding: 0.3rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .service-features li:before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #ffd93d;
+        }
+        
+        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -949,35 +329,21 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0,0,0,0.9);
             z-index: 10000;
-            backdrop-filter: blur(10px);
+            align-items: center;
+            justify-content: center;
         }
         
         .modal.active {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: fadeIn 0.3s ease;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
         }
         
         .modal-content {
             max-width: 90%;
             max-height: 90%;
-            border-radius: 20px;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
-            animation: slideIn 0.4s ease;
-        }
-        
-        @keyframes slideIn {
-            from { transform: scale(0.8); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
         }
         
         .modal-image {
@@ -988,835 +354,255 @@
         
         .modal-close {
             position: absolute;
-            top: 30px;
+            top: 20px;
             right: 30px;
             color: white;
-            font-size: 3rem;
+            font-size: 2rem;
             cursor: pointer;
-            z-index: 10001;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0,0,0,0.5);
             border-radius: 50%;
-            width: 60px;
-            height: 60px;
+            width: 40px;
+            height: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
         }
         
-        .modal-close:hover {
-            background: rgba(0, 0, 0, 0.7);
-            transform: scale(1.1);
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 40px 0 20px;
+            text-align: center;
         }
         
-        /* Loading Animation */
-        .loading {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            border-top-color: #ff6b6b;
-            animation: spin 1s ease-in-out infinite;
-        }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .portfolio-grid {
-                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            }
-            
-            .services-grid {
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            }
-        }
-        
+        /* Responsive */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
             }
             
-            .mobile-menu-btn {
-                display: flex;
+            .mobile-menu {
+                display: block;
             }
             
             .hero {
-                padding: 140px 0 80px;
-                min-height: 80vh;
+                padding: 120px 0 60px;
             }
             
-            .hero-cta {
+            .hero-buttons {
                 flex-direction: column;
-                gap: 1.5rem;
-            }
-            
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .portfolio-item {
-                height: 400px;
-            }
-            
-            .process-step {
-                flex-direction: column !important;
-            }
-            
-            .process-step:nth-child(even) .process-content {
-                text-align: left;
-            }
-            
-            .process-timeline::before {
-                left: 40px;
-            }
-            
-            .process-number {
-                left: 40px;
-            }
-            
-            .process-content {
-                margin-left: 7rem;
-                margin-right: 0;
-                padding: 2.5rem 2rem;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                gap: 1.5rem;
+                align-items: center;
             }
             
             .gallery-grid {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 16px;
             }
             
             .philosophy-grid {
                 grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .philosophy-item {
-                padding: 2.5rem 2rem;
-            }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .service-card {
-                padding: 2.5rem 2rem;
             }
         }
-        
-        /* Enhanced Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(60px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .slide-in-left {
-            opacity: 0;
-            transform: translateX(-100px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .slide-in-left.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        
-        .slide-in-right {
-            opacity: 0;
-            transform: translateX(100px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .slide-in-right.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        
-        /* Stagger Animation */
-        .philosophy-item:nth-child(1) { animation-delay: 0.1s; }
-        .philosophy-item:nth-child(2) { animation-delay: 0.2s; }
-        .philosophy-item:nth-child(3) { animation-delay: 0.3s; }
-        
-        .service-card:nth-child(1) { animation-delay: 0.1s; }
-        .service-card:nth-child(2) { animation-delay: 0.2s; }
-        .service-card:nth-child(3) { animation-delay: 0.3s; }
-        .service-card:nth-child(4) { animation-delay: 0.4s; }
-        
-        .portfolio-item:nth-child(1) { animation-delay: 0.1s; }
-        .portfolio-item:nth-child(2) { animation-delay: 0.2s; }
-        .portfolio-item:nth-child(3) { animation-delay: 0.3s; }
-        .portfolio-item:nth-child(4) { animation-delay: 0.4s; }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header id="header">
+    <header>
         <nav class="container">
             <div class="logo">DigitalPro</div>
             <ul class="nav-links">
-                <li><a href="landing page.html">Beranda</a></li>
-                <li><a href="produk.html">Produk</a></li>
-                <li><a href="Design.html" class="active">Design</a></li>
-                <li><a href="Harga.html">Harga</a></li>
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#services">Layanan</a></li>
+                <li><a href="#contact">Kontak</a></li>
             </ul>
-            <div class="mobile-menu-btn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <button class="mobile-menu">☰</button>
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="home">
         <div class="container">
-            <div class="hero-content">
-                <h1>Design Studio Kreatif</h1>
-                <p>Menciptakan pengalaman digital yang memukau dengan desain yang user-centered, inovatif, dan berdampak untuk brand Anda</p>
-                <div class="hero-cta">
-                    <button class="cta-primary" onclick="scrollToSection('portfolio')">Lihat Portfolio</button>
-                    <button class="cta-secondary" onclick="scrollToSection('contact')">Konsultasi Gratis</button>
-                </div>
+            <h1>Design Studio Kreatif</h1>
+            <p>Menciptakan pengalaman digital yang memukau dengan desain yang user-centered, inovatif, dan berdampak untuk brand Anda</p>
+            <div class="hero-buttons">
+                <a href="#portfolio" class="btn-primary">Lihat Portfolio</a>
+                <a href="#contact" class="btn-secondary">Konsultasi Gratis</a>
             </div>
         </div>
     </section>
 
-    <!-- Design Philosophy Section -->
-    <section class="philosophy">
+    <section class="philosophy" id="philosophy">
         <div class="container">
-            <h2 class="section-title fade-in">Filosofi Design Kami</h2>
-            <p class="section-subtitle fade-in">Setiap pixel memiliki purpose, setiap interaksi menciptakan connection</p>
+            <h2 class="section-title">Filosofi Design Kami</h2>
+            <p class="section-subtitle">Setiap pixel memiliki purpose, setiap interaksi menciptakan connection</p>
             <div class="philosophy-grid">
-                <div class="philosophy-item fade-in">
-    <span class="philosophy-icon">🎯</span>
-    <h3 class="philosophy-title">Konsep Panggung Berfokus pada Acara</h3>
-    <p class="philosophy-description">Setiap rancangan panggung dibuat berdasarkan kebutuhan acara malam puncak 17 Agustus, dengan memperhatikan alur acara, penonton, dan nuansa perayaan kemerdekaan.</p>
-</div>
-<div class="philosophy-item fade-in">
-    <span class="philosophy-icon">⚡</span>
-    <h3 class="philosophy-title">Estetika & Performa Maksimal</h3>
-    <p class="philosophy-description">Menghadirkan perpaduan visual yang megah dan tata panggung yang fungsional. Semua elemen diatur untuk kenyamanan, keamanan, dan pengalaman yang meriah.</p>
-</div>
-<div class="philosophy-item fade-in">
-    <span class="philosophy-icon">🚀</span>
-    <h3 class="philosophy-title">Kreativitas & Inovasi</h3>
-    <p class="philosophy-description">Mengusung desain modern yang dikombinasikan dengan semangat kemerdekaan, menciptakan panggung yang unik, berkesan, dan siap menyemarakkan malam puncak 17 Agustus.</p>
-</div>
+                <div class="philosophy-item">
+                    <span class="philosophy-icon">🎯</span>
+                    <h3 class="philosophy-title">Konsep Panggung Berfokus pada Acara</h3>
+                    <p class="philosophy-description">Setiap rancangan panggung dibuat berdasarkan kebutuhan acara malam puncak 17 Agustus, dengan memperhatikan alur acara, penonton, dan nuansa perayaan kemerdekaan.</p>
+                </div>
+                <div class="philosophy-item">
+                    <span class="philosophy-icon">⚡</span>
+                    <h3 class="philosophy-title">Estetika & Performa Maksimal</h3>
+                    <p class="philosophy-description">Menghadirkan perpaduan visual yang megah dan tata panggung yang fungsional. Semua elemen diatur untuk kenyamanan, keamanan, dan pengalaman yang meriah.</p>
+                </div>
+                <div class="philosophy-item">
+                    <span class="philosophy-icon">🚀</span>
+                    <h3 class="philosophy-title">Kreativitas & Inovasi</h3>
+                    <p class="philosophy-description">Mengusung desain modern yang dikombinasikan dengan semangat kemerdekaan, menciptakan panggung yang unik, berkesan, dan siap menyemarakkan malam puncak 17 Agustus.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
-<section class="gallery">
-    <div class="container">
-        <h2 class="section-title fade-in">Gallery Desain Panggung 17 Agustus</h2>
-        <p class="section-subtitle fade-in">Dokumentasi uji coba dan hasil jadi panggung malam puncak kemerdekaan</p>
-        <div class="gallery-grid">
-            
-            <!-- Foto Uji Coba Panggung -->
-            <div class="gallery-item fade-in" onclick="openModal('IImage/Panggung1.jpg')">
-                <img src="Image/Panggung1.jpg" alt="Uji Coba Panggung" class="gallery-image">
-                <div class="gallery-overlay">
-                    <h3 class="gallery-title">Panggung sudah jadi</h3>
+    <section class="gallery" id="portfolio">
+        <div class="container">
+            <h2 class="section-title">Gallery Desain Panggung 17 Agustus</h2>
+            <p class="section-subtitle">Dokumentasi uji coba dan hasil jadi panggung malam puncak kemerdekaan</p>
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openModal('Image/Panggung1.jpg')">
+                    <div class="gallery-image" style="background: linear-gradient(135deg, #ff6b6b, #ffd93d); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">🎪</div>
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Panggung Sudah Jadi</h3>
+                    </div>
                 </div>
-            </div>
-
-            <!-- Foto Panggung Jadi -->
-            <div class="gallery-item fade-in" onclick="openModal('Image/Contoh.jpg')">
-                <img src="Image/Contoh.jpg" alt="Panggung Jadi" class="gallery-image">
-                <div class="gallery-overlay">
-                    <h3 class="gallery-title">Uji Coba Panggung</h3>
+                <div class="gallery-item" onclick="openModal('Image/Contoh.jpg')">
+                    <div class="gallery-image" style="background: linear-gradient(135deg, #6366f1, #8b5cf6); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">🎨</div>
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Uji Coba Panggung</h3>
+                    </div>
                 </div>
-            </div>
-
-            <div class="gallery-item fade-in" onclick="openModal('Image/design_visual.png')">
-                <img src="Image/design_visual.png" alt="Panggung Jadi" class="gallery-image">
-                <div class="gallery-overlay">
-                    <h3 class="gallery-title">Design Visual</h3>
+                <div class="gallery-item" onclick="openModal('Image/design_visual.png')">
+                    <div class="gallery-image" style="background: linear-gradient(135deg, #8b5cf6, #ec4899); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">🖼️</div>
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Design Visual</h3>
+                    </div>
                 </div>
-            </div>
-
-
-        </div>
-    </div>
-</section>
-
-
-    <!-- Services Section -->
-<section class="services">
-    <div class="container">
-        <h2 class="section-title fade-in">Layanan Desain Panggung 17 Agustus</h2>
-        <p class="section-subtitle fade-in">Solusi terbaik untuk menciptakan panggung megah dan berkesan pada malam puncak kemerdekaan</p>
-        <div class="services-grid">
-            <div class="service-card slide-in-left">
-                <span class="service-icon">🎆</span>
-                <h3 class="service-title">Desain Panggung Malam Puncak</h3>
-                <p class="service-description">Kami menghadirkan desain panggung yang kreatif, megah, dan penuh semangat kemerdekaan untuk memeriahkan malam puncak 17 Agustus.</p>
-                <ul class="service-features">
-                    <li>Konsep panggung sesuai tema kemerdekaan</li>
-                    <li>Desain visual merah putih yang ikonik</li>
-                    <li>Pencahayaan & dekorasi kreatif</li>
-                    <li>Layout panggung fungsional & aman</li>
-                </ul>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-    <!-- Image Modal -->
-    <div class="modal" id="imageModal">
-        <div class="modal-close" onclick="closeModal()">&times;</div>
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Layanan Desain Panggung 17 Agustus</h2>
+            <p class="section-subtitle">Solusi terbaik untuk menciptakan panggung megah dan berkesan pada malam puncak kemerdekaan</p>
+            <div class="philosophy-grid">
+                <div class="service-card">
+                    <span class="service-icon">🎆</span>
+                    <h3 class="service-title">Desain Panggung Malam Puncak</h3>
+                    <p class="service-description">Kami menghadirkan desain panggung yang kreatif, megah, dan penuh semangat kemerdekaan untuk memeriahkan malam puncak 17 Agustus.</p>
+                    <ul class="service-features">
+                        <li>Konsep panggung sesuai tema kemerdekaan</li>
+                        <li>Desain visual merah putih yang ikonik</li>
+                        <li>Pencahayaan & dekorasi kreatif</li>
+                        <li>Layout panggung fungsional & aman</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <h3>Hubungi Kami</h3>
+            <p>Siap berkolaborasi untuk project design panggung 17 Agustus Anda?</p>
+            <div style="margin-top: 1rem;">
+                <a href="#" class="btn-primary">Konsultasi Sekarang</a>
+            </div>
+            <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #555; color: #999;">
+                <p>&copy; 2025 DigitalPro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal" id="imageModal" onclick="closeModal()">
+        <div class="modal-close">&times;</div>
         <div class="modal-content">
-            <img id="modalImage" src="" alt="Portfolio Image" class="modal-image">
+            <img id="modalImage" src="" alt="Gallery Image" class="modal-image">
         </div>
     </div>
 
-    <!-- JavaScript -->
     <script>
-        // Scroll Animation Observer
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('visible');
-                    }, index * 100);
-                    observer.unobserve(entry.target);
+        // Simple smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
                 }
             });
-        }, observerOptions);
-        
-        // Observe all animation elements
-        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
-            observer.observe(el);
         });
-        
+
         // Header scroll effect
         window.addEventListener('scroll', () => {
-            const header = document.getElementById('header');
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
             } else {
-                header.classList.remove('scrolled');
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
             }
         });
-        
-        // Portfolio Filter Functionality
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const portfolioItems = document.querySelectorAll('.portfolio-item');
-        
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Remove active class from all buttons
-                filterBtns.forEach(b => b.classList.remove('active'));
-                // Add active class to clicked button
-                btn.classList.add('active');
-                
-                const filter = btn.getAttribute('data-filter');
-                
-                portfolioItems.forEach(item => {
-                    const category = item.getAttribute('data-category');
-                    
-                    if (filter === 'all' || category === filter) {
-                        item.style.display = 'block';
-                        setTimeout(() => {
-                            item.style.opacity = '1';
-                            item.style.transform = 'scale(1)';
-                        }, 100);
-                    } else {
-                        item.style.opacity = '0';
-                        item.style.transform = 'scale(0.8)';
-                        setTimeout(() => {
-                            item.style.display = 'none';
-                        }, 300);
-                    }
-                });
-            });
-        });
-        
-        // Modal Functions
+
+        // Modal functions
         function openModal(imageSrc) {
             const modal = document.getElementById('imageModal');
             const modalImage = document.getElementById('modalImage');
-            
             modalImage.src = imageSrc;
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
-            
-            // Add loading state
-            modalImage.onload = () => {
-                modal.querySelector('.modal-content').style.opacity = '1';
-            };
-            
-            modalImage.onerror = () => {
-                // If image fails to load, show a placeholder
-                modalImage.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDQwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiBmaWxsPSJ1cmwoI2dyYWRpZW50KSIvPgo8dGV4dCB4PSIyMDAiIHk9IjE1MCIgZmlsbD0id2hpdGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkRlc2lnbiBTaG93Y2FzZTwvdGV4dD4KPGRLZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iZ3JhZGllbnQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiM2MzY2ZjEiLz48c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzhiNWNmNiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2VjNDg5OSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPgo8L3N2Zz4K';
-            };
         }
-        
+
         function closeModal() {
             const modal = document.getElementById('imageModal');
             modal.classList.remove('active');
             document.body.style.overflow = 'auto';
         }
-        
-        // Close modal on background click
-        document.getElementById('imageModal').addEventListener('click', (e) => {
-            if (e.target === e.currentTarget) {
-                closeModal();
-            }
-        });
-        
-        // Close modal on ESC key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                closeModal();
-            }
-        });
-        
-        // Smooth scrolling function
-        function scrollToSection(sectionId) {
-            const element = document.getElementById(sectionId);
-            if (element) {
-                element.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        }
-        
-        // Consultation function
-        function openConsultation() {
-            // You can replace this with actual consultation booking system
-            const message = encodeURIComponent("Halo! Saya tertarik untuk konsultasi design dengan DigitalPro. Bisakah kita diskusikan project saya?");
-            window.open(`https://wa.me/6281234567890?text=${message}`, '_blank');
-        }
-        
+
         // Mobile menu toggle
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navLinks = document.querySelector('.nav-links');
-        
-        mobileMenuBtn?.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            mobileMenuBtn.classList.toggle('active');
-        });
-        
-        // Parallax effect for hero section
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const parallax = document.querySelector('.hero');
-            if (parallax) {
-                const speed = scrolled * 0.5;
-                parallax.style.transform = `translateY(${speed}px)`;
-            }
-        });
-        
-        // Add loading animation for images
-        document.querySelectorAll('img').forEach(img => {
-            img.addEventListener('load', () => {
-                img.classList.add('loaded');
-            });
-        });
-        
-        // Enhanced hover effects for portfolio items
-        document.querySelectorAll('.portfolio-item').forEach(item => {
-            item.addEventListener('mouseenter', () => {
-                item.style.transform = 'translateY(-20px) scale(1.02)';
-            });
-            
-            item.addEventListener('mouseleave', () => {
-                item.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-        
-        // Dynamic gradient background animation
-        function animateGradients() {
-            const gradients = document.querySelectorAll('[style*="background: linear-gradient"]');
-            gradients.forEach((el, index) => {
-                el.style.backgroundSize = '200% 200%';
-                el.style.animation = `gradientShift ${3 + index * 0.5}s ease infinite`;
-            });
-        }
-        
-        // Initialize on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            animateGradients();
-            
-            // Add stagger delay to portfolio items
-            document.querySelectorAll('.portfolio-item').forEach((item, index) => {
-                item.style.animationDelay = `${index * 0.1}s`;
-            });
-            
-            // Add stagger delay to service cards
-            document.querySelectorAll('.service-card').forEach((item, index) => {
-                item.style.animationDelay = `${index * 0.15}s`;
-            });
-        });
-        
-        // Error handling for images with fallback gradients
-        document.querySelectorAll('.portfolio-image').forEach(item => {
-            const bgImage = item.style.backgroundImage;
-            if (bgImage) {
-                const img = new Image();
-                img.src = bgImage.slice(5, -2); // Remove url("") wrapper
-                img.onerror = () => {
-                    // If image fails to load, use gradient background
-                    const gradients = [
-                        'linear-gradient(135deg, #6366f1, #8b5cf6)',
-                        'linear-gradient(135deg, #8b5cf6, #ec4899)',
-                        'linear-gradient(135deg, #ec4899, #f97316)',
-                        'linear-gradient(135deg, #f97316, #eab308)',
-                        'linear-gradient(135deg, #eab308, #22c55e)',
-                        'linear-gradient(135deg, #22c55e, #06b6d4)'
-                    ];
-                    const randomGradient = gradients[Math.floor(Math.random() * gradients.length)];
-                    item.style.background = randomGradient;
-                    
-                    // Add a design icon as placeholder
-                    item.innerHTML = `
-                        <div style="display: flex; align-items: center; justify-content: center; height: 100%; color: white; font-size: 4rem;">
-                            🎨
-                        </div>
-                        ${item.innerHTML}
-                    `;
-                };
-            }
-        });
-        
-        // Intersection Observer for counting animations
-        const countElements = document.querySelectorAll('[data-count]');
-        const countObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const target = parseInt(entry.target.getAttribute('data-count'));
-                    animateCount(entry.target, target);
-                    countObserver.unobserve(entry.target);
-                }
-            });
-        });
-        
-        countElements.forEach(el => countObserver.observe(el));
-        
-        function animateCount(element, target) {
-            let current = 0;
-            const increment = target / 100;
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    current = target;
-                    clearInterval(timer);
-                }
-                element.textContent = Math.floor(current);
-            }, 20);
-        }
-        
-        // Advanced scroll animations
-        class ScrollAnimator {
-            constructor() {
-                this.elements = document.querySelectorAll('[data-scroll]');
-                this.init();
-            }
-            
-            init() {
-                this.elements.forEach(el => {
-                    this.observer.observe(el);
-                });
-            }
-            
-            observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const animation = entry.target.getAttribute('data-scroll');
-                        entry.target.classList.add(animation);
-                    }
-                });
-            });
-        }
-        
-        // Initialize scroll animator
-        new ScrollAnimator();
-        
-        // Performance optimization
-        let ticking = false;
-        
-        function updateScrollElements() {
-            // Throttle scroll events for better performance
-            if (!ticking) {
-                requestAnimationFrame(() => {
-                    // Update scroll-dependent elements here
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        }
-        
-        window.addEventListener('scroll', updateScrollElements);
-        
-        // Preload critical images
-        function preloadImages() {
-            const imagesToPreload = [
-                'Web-Marketing/image/ecommerce-ui.jpg',
-                'Web-Marketing/image/brand-identity.jpg',
-                'Web-Marketing/image/corporate-web.jpg',
-                'Web-Marketing/image/fitness-app.jpg',
-                'Web-Marketing/image/dashboard-design.jpg',
-                'Web-Marketing/image/restaurant-brand.jpg',
-                'Web-Marketing/image/design-showcase-1.jpg',
-                'Web-Marketing/image/design-showcase-2.jpg',
-                'Web-Marketing/image/design-showcase-3.jpg',
-                'Web-Marketing/image/design-showcase-4.jpg',
-                'Web-Marketing/image/design-showcase-5.jpg',
-                'Web-Marketing/image/design-showcase-6.jpg'
-            ];
-            
-            imagesToPreload.forEach(src => {
-                const img = new Image();
-                img.src = src;
-            });
-        }
-        
-        // Initialize preloading
-        window.addEventListener('load', preloadImages);
-        
-        // Enhanced mobile menu
-        function toggleMobileMenu() {
+        document.querySelector('.mobile-menu').addEventListener('click', () => {
             const navLinks = document.querySelector('.nav-links');
-            const mobileBtn = document.querySelector('.mobile-menu-btn');
-            
-            navLinks.classList.toggle('mobile-active');
-            mobileBtn.classList.toggle('active');
-        }
-        
-        // Add mobile menu styles if needed
-        const mobileStyles = `
-            @media (max-width: 768px) {
-                .nav-links.mobile-active {
-                    display: flex;
-                    position: fixed;
-                    top: 80px;
-                    left: 0;
-                    right: 0;
-                    background: rgba(255, 255, 255, 0.95);
-                    backdrop-filter: blur(20px);
-                    flex-direction: column;
-                    padding: 2rem;
-                    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-                    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-                }
-                
-                .mobile-menu-btn.active span:nth-child(1) {
-                    transform: rotate(-45deg) translate(-6px, 6px);
-                }
-                
-                .mobile-menu-btn.active span:nth-child(2) {
-                    opacity: 0;
-                }
-                
-                .mobile-menu-btn.active span:nth-child(3) {
-                    transform: rotate(45deg) translate(-6px, -6px);
-                }
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.display = 'none';
+            } else {
+                navLinks.style.display = 'flex';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.right = '0';
+                navLinks.style.background = 'white';
+                navLinks.style.padding = '1rem';
+                navLinks.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
             }
-        `;
-        
-        // Inject mobile styles
-        const styleSheet = document.createElement('style');
-        styleSheet.textContent = mobileStyles;
-        document.head.appendChild(styleSheet);
-        
-        // Advanced image lazy loading with intersection observer
-        const imageObserver = new IntersectionObserver((entries) => {
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const nav = document.querySelector('nav');
+            const navLinks = document.querySelector('.nav-links');
+            if (!nav.contains(e.target)) {
+                navLinks.style.display = window.innerWidth > 768 ? 'flex' : 'none';
+            }
+        });
+
+        // Simple scroll animations
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    const img = entry.target;
-                    if (img.dataset.src) {
-                        img.src = img.dataset.src;
-                        img.classList.add('loaded');
-                        imageObserver.unobserve(img);
-                    }
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                 }
             });
-        });
-        
-        // Observe lazy load images
-        document.querySelectorAll('img[data-src]').forEach(img => {
-            imageObserver.observe(img);
-        });
-        
-        // Smooth reveal animations with stagger
-        function revealElements() {
-            const reveals = document.querySelectorAll('.fade-in:not(.visible)');
-            
-            reveals.forEach((element, index) => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                
-                if (elementTop < window.innerHeight - elementVisible) {
-                    setTimeout(() => {
-                        element.classList.add('visible');
-                    }, index * 100);
-                }
-            });
-        }
-        
-        window.addEventListener('scroll', revealElements);
-        
-        // Add touch gesture support for mobile
-        let startY = 0;
-        let startX = 0;
-        
-        document.addEventListener('touchstart', (e) => {
-            startY = e.touches[0].clientY;
-            startX = e.touches[0].clientX;
-        });
-        
-        document.addEventListener('touchmove', (e) => {
-            if (!startY || !startX) return;
-            
-            const diffY = startY - e.touches[0].clientY;
-            const diffX = startX - e.touches[0].clientX;
-            
-            // Add swipe gestures for portfolio navigation if needed
-            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
-                // Horizontal swipe detected
-                if (diffX > 0) {
-                    // Swipe left - next portfolio item
-                } else {
-                    // Swipe right - previous portfolio item
-                }
-            }
-            
-            startY = 0;
-            startX = 0;
-        });
-        
-        // Enhanced loading state management
-        class LoadingManager {
-            constructor() {
-                this.loadingElements = new Set();
-                this.init();
-            }
-            
-            init() {
-                // Show loading for images
-                document.querySelectorAll('img').forEach(img => {
-                    if (!img.complete) {
-                        this.showLoading(img.parentElement);
-                        img.addEventListener('load', () => this.hideLoading(img.parentElement));
-                        img.addEventListener('error', () => this.hideLoading(img.parentElement));
-                    }
-                });
-            }
-            
-            showLoading(element) {
-                if (!element.querySelector('.loading')) {
-                    const loader = document.createElement('div');
-                    loader.className = 'loading';
-                    loader.style.position = 'absolute';
-                    loader.style.top = '50%';
-                    loader.style.left = '50%';
-                    loader.style.transform = 'translate(-50%, -50%)';
-                    element.style.position = 'relative';
-                    element.appendChild(loader);
-                    this.loadingElements.add(element);
-                }
-            }
-            
-            hideLoading(element) {
-                const loader = element.querySelector('.loading');
-                if (loader) {
-                    loader.remove();
-                    this.loadingElements.delete(element);
-                }
-            }
-        }
-        
-        // Initialize loading manager
-        new LoadingManager();
-        
-        // Add error boundary for robust error handling
-        window.addEventListener('error', (e) => {
-            console.warn('Design page error handled:', e.error);
-            // Gracefully handle errors without breaking the experience
-        });
-        
-        // Initialize all features when DOM is ready
-        document.addEventListener('DOMContentLoaded', () => {
-            // Add entrance animations with stagger
-            document.querySelectorAll('.fade-in').forEach((el, index) => {
-                el.style.animationDelay = `${index * 0.1}s`;
-            });
-            
-            // Initialize filter functionality
-            if (document.querySelector('.filter-btn.active')) {
-                document.querySelector('.filter-btn.active').click();
-            }
-            
-            // Add scroll to top functionality
-            const scrollToTop = document.createElement('button');
-            scrollToTop.innerHTML = '↑';
-            scrollToTop.className = 'scroll-to-top';
-            scrollToTop.style.cssText = `
-                position: fixed;
-                bottom: 30px;
-                right: 30px;
-                width: 60px;
-                height: 60px;
-                border-radius: 50%;
-                background: linear-gradient(135deg, #6366f1, #8b5cf6);
-                color: white;
-                border: none;
-                font-size: 1.5rem;
-                font-weight: bold;
-                cursor: pointer;
-                opacity: 0;
-                visibility: hidden;
-                transition: all 0.3s ease;
-                z-index: 1000;
-                box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
-            `;
-            
-            scrollToTop.addEventListener('click', () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-            
-            document.body.appendChild(scrollToTop);
-            
-            // Show/hide scroll to top button
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 500) {
-                    scrollToTop.style.opacity = '1';
-                    scrollToTop.style.visibility = 'visible';
-                } else {
-                    scrollToTop.style.opacity = '0';
-                    scrollToTop.style.visibility = 'hidden';
-                }
-            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.philosophy-item, .service-card, .gallery-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
         });
     </script>
 </body>
